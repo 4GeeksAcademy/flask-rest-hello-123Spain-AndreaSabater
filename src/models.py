@@ -5,9 +5,7 @@ from sqlalchemy.orm import Mapped, mapped_column, relationship
 db = SQLAlchemy()
 
 
-# =========================
-# USER
-# =========================
+
 class User(db.Model):
     __tablename__ = "users"
 
@@ -39,9 +37,7 @@ class User(db.Model):
         }
 
 
-# =========================
-# POST
-# =========================
+
 class Post(db.Model):
     __tablename__ = "posts"
 
@@ -65,9 +61,7 @@ class Post(db.Model):
         }
 
 
-# =========================
-# COMMENT
-# =========================
+
 class Comment(db.Model):
     __tablename__ = "comments"
 
@@ -89,9 +83,7 @@ class Comment(db.Model):
         }
 
 
-# =========================
-# MEDIA
-# =========================
+
 class Media(db.Model):
     __tablename__ = "media"
 
@@ -112,9 +104,7 @@ class Media(db.Model):
         }
 
 
-# =========================
-# LIKE
-# =========================
+
 class Like(db.Model):
     __tablename__ = "likes"
     __table_args__ = (UniqueConstraint("user_id", "post_id", name="unique_like"),)
@@ -135,9 +125,7 @@ class Like(db.Model):
         }
 
 
-# =========================
-# FOLLOW (usuario sigue usuario)
-# =========================
+
 class Follow(db.Model):
     __tablename__ = "follows"
     __table_args__ = (UniqueConstraint("follower_id", "following_id", name="unique_follow"),)
